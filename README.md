@@ -75,5 +75,10 @@ Created a combined workflow using the following nodes:
 - Verified the execution results.
 
 
+GIT url:
 
+
+Loom Video:
+
+https://www.loom.com/share/881c3911e04f471a9ec3b6a0cb45f3d6
 
