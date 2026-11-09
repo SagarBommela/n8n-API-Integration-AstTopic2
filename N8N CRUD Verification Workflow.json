@@ -1,0 +1,115 @@
+{
+  "name": "N8N CRUD Verification Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "65ed771c-9429-4f8d-b1f9-0a3bcc0d6364",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://reqres.in/api/users",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"name\": \"Alice Smith\",\n  \"job\": \"Software Engineer\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        256,
+        0
+      ],
+      "id": "de7dfbf9-2595-455f-b863-b07aee6e94ff",
+      "name": "Post method"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "https://reqres.in/api/users/2",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"name\": \"Alice Jones\",\n  \"job\": \"Lead Engineer\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        496,
+        0
+      ],
+      "id": "65ccd372-1acc-4525-8052-47d6b8ee379f",
+      "name": "PUT Method"
+    },
+    {
+      "parameters": {
+        "method": "DELETE",
+        "url": "https://reqres.in/api/users/2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        752,
+        0
+      ],
+      "id": "acdd1d33-cce8-4bc9-9246-798c36576378",
+      "name": "DELETE"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Post method",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post method": {
+      "main": [
+        [
+          {
+            "node": "PUT Method",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PUT Method": {
+      "main": [
+        [
+          {
+            "node": "DELETE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "1ccae95f-d629-4e9c-a322-43f02cb346d0",
+  "meta": {
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
+  },
+  "nodeGroups": [],
+  "id": "AOmFofUfVIMJ7BsB",
+  "tags": []
+}
